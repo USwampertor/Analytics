@@ -1,0 +1,33 @@
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 0.2876821,
+    "hits" : [
+      {
+        "_index" : "heatmap",
+        "_type" : "message",
+        "_id" : "gmAwTnkBTRrh7-XvJVoS",
+        "_score" : 0.2876821,
+        "_source" : {
+          "event_id" : "world",
+          "position" : [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    ]
+  }
+}
