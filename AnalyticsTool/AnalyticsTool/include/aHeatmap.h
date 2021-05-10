@@ -1,11 +1,29 @@
 
 #pragma once
 
+#include <SFML/System/Vector3.hpp>
 #include <SFML/Graphics.hpp>
 
 #include "aUtilities.h"
 
 namespace Analytics {
+
+struct cmpVector3i {
+  bool operator()(const sf::Vector3i& lhs, const sf::Vector3i& rhs) const {
+    return lhs.x < rhs.x
+           || (lhs.x == rhs.x && (lhs.y < rhs.y
+           || (lhs.y == rhs.y && lhs.z < rhs.z)));
+  }
+};
+
+struct cmpVector3f {
+  bool operator()(const sf::Vector3f& lhs, const sf::Vector3f& rhs) const {
+    return lhs.x < rhs.x
+           || (lhs.x == rhs.x && (lhs.y < rhs.y
+           || (lhs.y == rhs.y && lhs.z < rhs.z)));
+  }
+};
+
 class Heatmap
 {
  public:
@@ -41,6 +59,9 @@ class Heatmap
   setInfluence(float x, float y, float influence);
 
   void
+  setInfluenceMap(sf::Vector2u mapSize);
+
+  void
   calculateInfluence(sf::Vector2i pos, sf::Vector2u mapSize, float& maxInf, float& minInf);
 
   void
@@ -68,25 +89,34 @@ class Heatmap
   setDecay(float decay);
 
   void
-  createHeatmapStats();
+  processInformation(Vector<sf::Vector3i>& info);
+
+  void
+  createHeatmapStats(Vector<sf::Vector3i>& info);
 
   void
   showHeatmap();
 
-  /**
-   * @brief Blends a color based on a value of influence (as a LERP but for colors)
-   * @param sf::Color color1 the start color
-   * @param sf::Color color2 the end color
-   * @param float fraction the influence in the final color
-   * @return sf::Color the blend of both colors
-   *
-   */
   sf::Color
   BlendColor(sf::Color color1, sf::Color color2, float fraction);
 
  private:
 
-  Vector<Vector<float>> influenceMap;
+  //Database section
+
+  sf::Vector3f m_scale;
+
+  int m_max;
+
+  sf::Vector3i m_minPoint;
+
+  sf::Vector3i m_maxPoint;
+  
+  Map<sf::Vector3f, int, cmpVector3f> m_normalizedMap;
+
+  // Heatmap section
+
+  Vector<Vector<float>> m_influenceMap;
 
   float m_decay;
 

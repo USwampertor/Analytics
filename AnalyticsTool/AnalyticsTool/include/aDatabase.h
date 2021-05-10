@@ -2,6 +2,8 @@
 
 #include "aUtilities.h"
 
+#include <SFML/System/Vector3.hpp>
+
 namespace Analytics
 {
 class Database
@@ -11,7 +13,7 @@ public:
 
 	~Database() = default;
 
-	bool
+  Vector<sf::Vector3i>
 	downloadData();
 
 	void

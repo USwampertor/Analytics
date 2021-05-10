@@ -28,10 +28,12 @@ int main()
     system("cls");
     std::cout << "Times performed: " << timesPerformed << std::endl;
     std::cout << "Downloading..." << std::endl;
-		d->downloadData();
+		auto data = d->downloadData();
+		h->processInformation(data);
 		std::cout << "Downloaded" << std::endl;
     std::cout << "Waiting 30 seconds for next update" << std::endl;
-
+		// h->renderWindow();
+		h->showHeatmap();
 		std::this_thread::sleep_for(std::chrono::seconds(30));
 		++timesPerformed;
 	}

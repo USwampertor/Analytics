@@ -2,6 +2,7 @@
 
 #define CURL_STATICLIB
 #include <curl/curl.h>
+#include <rapidjson/document.h>
 
 namespace Analytics
 {
@@ -108,26 +109,64 @@ namespace Analytics
 
 
 
-  bool
-  Database::downloadData() {
-   
+  Vector<sf::Vector3i>
+    Database::downloadData() {
+
+    Vector <sf::Vector3i> toReturn;
+
     String header;
     String response = "";
     String url = String("localhost:9200") + String("/") +
                  String("heatmap") + String("/_search?pretty");
 
-    String query = "{\"query\": { \"match\": {\"event_id\":\"world\"} } }";
-
+    String query = "{\"query\": { \"bool\": { \"must\": [ { \"exists\": {\"field\": \"position\"} } ] } } }";
+    
     get(url, query, header, response);
 
     if (response == "") {
-      return false;
+      return toReturn;
     }
-   
+    
+    rapidjson::Document jsonFile;
+    jsonFile.Parse(response.c_str());
+
+    if (jsonFile.IsNull()) {
+      return toReturn;
+    }
+
+    if (jsonFile.HasMember("hits")) {
+      if (jsonFile.HasMember("hits")) {
+        if (jsonFile["hits"]["hits"].IsArray()) {
+          auto arrayOfResults = jsonFile["hits"]["hits"].GetArray();
+          for (rapidjson::Value::ConstValueIterator itr = arrayOfResults.Begin(); itr != arrayOfResults.End(); ++itr) {
+            const rapidjson::Value& jsonObject = *itr;
+            if (jsonObject.HasMember("_source")) {
+              if (jsonObject["_source"].IsObject()) {
+                auto sourceObject = jsonObject["_source"].GetObject();
+
+                if (sourceObject.HasMember("position")) {
+                  sf::Vector3i v;
+                  
+                  auto positionArray = sourceObject["position"].GetArray();
+                  v.x = static_cast<int>(positionArray[0].GetFloat());
+                  v.y = static_cast<int>(positionArray[1].GetFloat());
+                  v.z = static_cast<int>(positionArray[2].GetFloat());
+                  toReturn.push_back(v);
+                }
+
+              }
+            }
+          }
+        }
+
+      }
+    }
+
     Ofstream json("result.json");
     json << response;
     json.close();
 
+    return toReturn;
   }
 
 }
