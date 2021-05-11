@@ -353,7 +353,11 @@ namespace Analytics {
       size.y = height;
     }
 
-    m_window->setSize(size);
+    sf::View view = m_window->getView();
+
+    view.setSize(size.x, size.y);
+
+    m_window->setView(view);
     setInfluenceMap(size);
     setAllInfluence();
 
@@ -434,7 +438,7 @@ namespace Analytics {
     shape.setFillColor(sf::Color::Green);
 
     m_window->clear();
-    m_window->draw(shape);
+    //m_window->draw(shape);
     m_window->draw(heatMapSprite);
     m_window->display();
   }

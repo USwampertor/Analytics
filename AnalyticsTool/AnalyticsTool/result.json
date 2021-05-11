@@ -1,5 +1,5 @@
 {
-  "took" : 5,
+  "took" : 955,
   "timed_out" : false,
   "_shards" : {
     "total" : 1,
@@ -9,7 +9,7 @@
   },
   "hits" : {
     "total" : {
-      "value" : 8,
+      "value" : 755,
       "relation" : "eq"
     },
     "max_score" : 1.0,
@@ -17,113 +17,141 @@
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "D-ZoVHkBpyrGVZMPL0Ox",
+        "_id" : "6vZHWXkBrnReiRXIbthL",
         "_score" : 1.0,
         "_source" : {
-          "event_id" : "world",
+          "timestamp" : "2021/05/10 21:35:23",
           "position" : [
-            0,
-            0,
-            0
+            41,
+            467,
+            334
           ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "dPafVnkBrnReiRXI4tia",
+        "_id" : "6_ZHWXkBrnReiRXIetiL",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:27",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 9:12:00"
+            500,
+            169,
+            724
+          ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "dfafVnkBrnReiRXI9dib",
+        "_id" : "7PZHWXkBrnReiRXIh9i8",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:30",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 9:12:01"
+            478,
+            358,
+            962
+          ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "dvagVnkBrnReiRXIA9ht",
+        "_id" : "7fZHWXkBrnReiRXIlNj3",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:33",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 9:12:02"
+            464,
+            705,
+            145
+          ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "d_agVnkBrnReiRXIEdia",
+        "_id" : "7vZHWXkBrnReiRXIotgq",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:37",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 9:12:03"
+            281,
+            827,
+            961
+          ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "ePagVnkBrnReiRXIHdj1",
+        "_id" : "7_ZHWXkBrnReiRXIr9hq",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:40",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 9:12:04"
+            491,
+            995,
+            942
+          ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "efagVnkBrnReiRXIMth0",
+        "_id" : "8PZHWXkBrnReiRXIvNi7",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:44",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 9:12:05"
+            827,
+            436,
+            391
+          ]
         }
       },
       {
         "_index" : "heatmap",
         "_type" : "message",
-        "_id" : "evbvVnkBrnReiRXI4diG",
+        "_id" : "8fZHWXkBrnReiRXIytjy",
         "_score" : 1.0,
         "_source" : {
+          "timestamp" : "2021/05/10 21:35:47",
           "position" : [
-            100,
-            100,
-            100
-          ],
-          "timestamp" : "2021/05/10 10:40:05"
+            604,
+            902,
+            153
+          ]
+        }
+      },
+      {
+        "_index" : "heatmap",
+        "_type" : "message",
+        "_id" : "8vZHWXkBrnReiRXI1tjB",
+        "_score" : 1.0,
+        "_source" : {
+          "timestamp" : "2021/05/10 21:35:50",
+          "position" : [
+            292,
+            382,
+            421
+          ]
+        }
+      },
+      {
+        "_index" : "heatmap",
+        "_type" : "message",
+        "_id" : "8_ZHWXkBrnReiRXI5dio",
+        "_score" : 1.0,
+        "_source" : {
+          "timestamp" : "2021/05/10 21:35:54",
+          "position" : [
+            716,
+            718,
+            895
+          ]
         }
       }
     ]
